@@ -1,0 +1,131 @@
+  body {
+    margin: 0;
+    padding: 0;
+    display: grid;    /* 整个页面使用网格布局 */
+    height: 100vh;
+    grid-template-rows: minmax(3em,10vh) 1fr;
+  }
+  a,a:visited{
+    color: black;
+    text-decoration: none;
+  }
+  a:hover{
+    color: white;
+  }
+  header{
+    display: flex;    /* 导航模块使用弹性布局 */
+    align-items:center;
+    background-image: linear-gradient(#ececec,#dadada,#ececec);
+  }
+  main{
+    display: grid;    /* 取件模块使用网格布局 */
+    max-height: 90vh;
+    background-color: #f5f5f5;
+  }
+  /* 导航模块 */
+  /* 返回链接 */
+  header>.back{
+    flex: 2;    /* 弹性布局占用比例 */
+    margin-left: 1em;
+  }
+  /* 标题 */
+  header>.title{
+    text-align: center;
+    flex: 8;    /* 弹性布局占用比例 */
+    font-weight: bold;
+  }
+  /* 倒计时 */
+  header>.countdown{
+    flex: 2;    /* 弹性布局占用比例 */
+    text-align: right;
+    margin-right: 1em;
+  }
+
+  /* 键盘子模块 */
+  .keyboard{
+    display: grid;
+    padding: 1em;
+    grid-template-columns: repeat(6,1fr); /* 网格设置平均分配的6列 */
+    grid-template-rows: 2em repeat(6,1fr); /* 网格设置7行 */
+    gap: 0.5em;
+  }
+  /* 提示文字 */
+  .keyboard>p{
+    grid-column: 1 / 7;
+    align-self: center;
+    justify-self: center;
+  }
+  /* 取件码输入框 */
+  .keyboard>input{
+    min-height: 1.4em;
+    min-width: 1.4em;
+    box-sizing: border-box;
+    font-size: 180%;
+    text-align: center;
+    outline: none;
+    border-color: #007bff;
+    border-radius: 0.3em;
+  }
+
+  /* 数字键盘 */
+  .keyboard>.key{
+    grid-column: span 2; /* 每个数字默认占用2列 */
+    font-size: 1.2em;
+    border:1px solid #bdbdbd;
+    border-radius: 0.5em;
+    background-color: white;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .keyboard>.key-0{ grid-column: 1 / 5; /* 数字0的按钮占用4列 */ }
+  .keyboard>.key:active{
+    color: white;
+    background-color: #007bff;
+  }
+  .keyboard>button{
+    grid-column: 1 / 7; /* 确认按钮占用所有6列 */
+    height: 100%;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff ;
+    border-radius: 0.5em;
+    border-color: #e0e0e0;
+  }
+  .keyboard>button:active{
+    color: #007bff;
+    background-color: white;
+  }
+  /* 二维码子模块 */
+  .qrcode{
+    display: flex;          /* 使用弹性布局 */
+    flex-direction: column; /* 垂直排列 */
+    align-items: center;
+    justify-content: center;
+  }
+  .scan_img{
+    width: 14px;
+    height: 14px;
+  }
+
+  /* 响应式 */
+  @media screen  and (orientation: landscape) {
+    /* 横屏时内容区域的网格设置  */
+    main{ grid-template-columns: repeat(2,1fr); }
+    /* 二维码尺寸 */
+    .qrcode_container{ width: 50%; }
+    .qrcode_img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @media screen  and (orientation: portrait) {
+    /* 竖屏时内容区域的网格设置 */
+    main{   grid-template-rows: 2fr minmax(20vh,1fr);  }
+    /* 竖屏键盘和二维码的排列顺序，键盘在上，二维码在下 */
+    .keyboard{  grid-row-start: 1; }
+    /* 二维码尺寸 */
+    .qrcode_container{ height: 75%; }
+    .qrcode_img{ height:100%; }
+  }
+

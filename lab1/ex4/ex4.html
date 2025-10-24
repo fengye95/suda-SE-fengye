@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>快递柜取件页面</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="ex4.css"></link>
+</head>
+<body>
+  <!-- 导航 -->
+  <header>
+    <div class="back"><a href="#">&lt返回</a></div>
+    <div class="title">取件</div>
+    <div class="countdown"><span>60</span>秒</div>
+  </header>
+<!-- 取件区域 -->
+<main>
+  <!-- 二维码 -->
+  <div class="qrcode">
+    <div class="qrcode_container">
+      <img class="qrcode_img" src="img/qrcode.png"/>
+    </div>
+    <p><img src="img/scan.png" class="scan_img"/> 微信扫码取件</p>
+  </div>
+  <!-- 键盘 -->
+  <div class="keyboard">
+    <p>请输入6位取件码</p>
+    <!-- 取件码输入框 -->
+    <input type="text" maxlength="1" required readonly/>
+    <input type="text" maxlength="1" required readonly/>
+    <input type="text" maxlength="1" required readonly/>
+    <input type="text" maxlength="1" required readonly/>
+    <input type="text" maxlength="1" required readonly/>
+    <input type="text" maxlength="1" required readonly/>
+    <!-- 数字键盘 -->
+    <div class="key key-1" onclick="tap(1)">1</div>
+    <div class="key key-2" onclick="tap(2)">2</div>
+    <div class="key key-3" onclick="tap(3)">3</div>
+    <div class="key key-4" onclick="tap(4)">4</div>
+    <div class="key key-5" onclick="tap(5)">5</div>
+    <div class="key key-6" onclick="tap(6)">6</div>
+    <div class="key key-7" onclick="tap(7)">7</div>
+    <div class="key key-8" onclick="tap(8)">8</div>
+    <div class="key key-9" onclick="tap(9)">9</div>
+    <div class="key key-0" onclick="tap(0)">0</div>
+    <div class="key key-c" onclick="tap(-1)">退格</div>
+    <button type="button"  onclick="collect()">确认取件</button>
+  </div>
+</main>
+  <script src="ex4.js"></script>
+</body>
+</html>

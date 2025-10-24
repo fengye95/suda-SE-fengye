@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>M.E.我的企业--首页</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="ex2.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header>
+            <!-- 企业logo -->
+            <div class="enterprise_logo">
+                <img src="img/logo.png" />
+            </div>
+            <!-- 企业名称 -->
+            <div class="enterprise_name">
+                我的<em>企业</em>
+            </div>
+            <!-- 导航菜单 -->
+            <nav>
+                <a href="#">首页</a>
+                <a href="#">企业介绍</a>
+                <a href="#">产品中心</a>
+                <a href="#">服务与支持</a>
+                <a href="#">联系我们</a>
+            </nav>
+            <div class="clear"></div>
+        </header>
+
+        <!-- 主要内容 -->
+        <main>
+            <!-- 用户注册标题-->
+            <div class="register-title">用户注册</div>
+            <!-- 巨幕 -->
+            <div class="jumbo_photo">
+                <img src="img/product3.png" />
+            </div>
+        </main>
+
+        <!-- Section 1 用户信息（必填） -->
+        <fieldset class="form-fieldset">
+            <legend class="section-legend">Section 1 用户信息（必填）</legend>
+            <!-- 用户名输入框 -->
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" class="form-control" placeholder="请输入3-12位英文字母" required>
+            </div>
+            <!-- 头像上传区域 -->
+            <div class="form-group">
+                <label for="avatar">头像</label>
+                <label for="avatar" class="avatar-upload">
+                    <span>点击上传</span>
+                </label>
+                <input type="file" id="avatar" accept="image/*" hidden>
+            </div>
+            <!-- 密码输入框 -->
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" class="form-control" placeholder="请设置6-12位密码" required>
+            </div>
+            <!-- 确认密码输入框 -->
+            <div class="form-group">
+                <label for="confirmPwd">确认密码</label>
+                <input type="password" id="confirmPwd" class="form-control" placeholder="请再次输入密码" required>
+            </div>
+            <!-- E-mail输入框 -->
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" class="form-control" placeholder="邮箱" required>
+            </div>
+            <!-- 性别单选框 -->
+            <div class="form-group">
+                <label>性别</label>
+                <input type="radio" name="gender" class="gender-radio" value="male"> 男
+                <input type="radio" name="gender" class="gender-radio" value="female"> 女
+            </div>
+            <!-- 生日输入框 -->
+            <div class="form-group">
+                <label for="birthday">生日</label>
+                <input type="date" id="birthday" class="form-control" required>
+            </div>
+        </fieldset>
+
+
+        <!-- Section 2 客户问卷（可选） -->
+        <fieldset class="form-fieldset">
+            <legend class="section-legend">Section 2 客户问卷（可选）</legend>
+            <!-- 从哪个产品了解 -->
+            <div class="form-group">
+                <label for="productSource">从哪个产品了解</label>
+                <select id="productSource" class="form-control" required>
+                    <option value="">请选择</option>
+                    <option value="product1">产品1</option>
+                    <option value="product2">产品2</option>
+                    <option value="product3">产品3</option>
+                </select>
+            </div>
+            <!-- 持有产品数量 -->
+            <div class="form-group">
+                <label for="productCount">持有产品数量</label>
+                <input type="number" id="productCount" class="form-control" min="0" value="0">
+            </div>
+            <!-- 意向估值范围 -->
+            <div class="form-group">
+                <label for="priceRange">意向估值范围</label>
+                <input type="range" id="priceRange" min="0" max="1000" value="0" class="form-control">
+                <span class="text-muted">1000</span> <!-- 显示右侧端点值（最大值） -->
+            </div>
+            <!-- 感兴趣的资产包（可多选） -->
+            <div class="form-group">
+                <label>感兴趣的类别<br>(Ctrl或Shift多选)</label>
+                <!-- size="6" 固定显示6个选项，超出部分自动出现滚动条 -->
+                <select id="assetPackage" class="form-control" multiple size="6" style="overflow-y: auto;">
+                    <option value="package1">产品包1</option>
+                    <option value="package2">产品包2</option>
+                    <option value="package3">产品包3</option>
+                    <option value="package4">产品包4</option>
+                    <option value="package5">产品包5</option>
+                    <option value="package6">产品包6</option>
+                    <option value="package7">产品包7</option>
+                    <option value="package8">产品包8</option>
+                    <option value="package9">产品包9</option>
+                    <option value="package10">产品包10</option>
+                </select>
+            </div>
+            <!-- 感兴趣的产品 -->
+            <div class="form-group">
+                <label>感兴趣的产品</label>
+                <div class="product-option">
+                    <input type="checkbox" name="interestProduct" value="product1"> 产品1
+                    <img class="product-image" src="img/product1.png" alt="产品1图片">
+                </div>
+                <div class="product-option">
+                    <input type="checkbox" name="interestProduct" value="product2"> 产品2
+                    <img class="product-image" src="img/product2.png" alt="产品2图片">
+                </div>
+                <div class="product-option">
+                    <input type="checkbox" name="interestProduct" value="product3"> 产品3
+                    <img class="product-image" src="img/product3.png" alt="产品3图片">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Section 3 意见建议（可选） -->
+        <fieldset class="form-fieldset">
+            <legend class="section-legend">Section 3 意见建议（可选）</legend>
+            <div class="form-group">
+                <textarea id="suggestion" rows="10" placeholder="请为我们的产品和服务提出建议！"
+                    style="display:block;width: 100%"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- 按钮组 -->
+        <div class="btn-group">
+            <button type="submit" class="btn" style="background-color: green">
+                注册
+            </button>
+            <button type="reset" class="btn" style="background-color:red">
+                重置
+            </button>
+        </div>
+        <!-- 页脚 -->
+        <footer>
+            <div class="copyright">Copyright © 2020 我的企业 版权所有</div>
+        </footer>
+    </div>
+</body>
+
+</html>

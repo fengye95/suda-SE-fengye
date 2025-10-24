@@ -1,0 +1,248 @@
+/* 项目4 企业网站首页CSS */
+body {
+    /* 覆盖浏览器默认样式 */
+    margin: 0, auto;
+    /* 上下外边距为0，左右自动 */
+    /* 全局字体设置 */
+    font-family: 微软雅黑, 黑体, 宋体, Arial, Helvetica, sans-serif;
+
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 900px;
+    /* 最大宽度固定为1200px */
+}
+
+h3 {
+    color: #888888;
+}
+
+/* 导航模块 */
+header {
+    height: 62px;
+    /* 水平居中：通过左右auto外边距实现块级元素水平居中 */
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    /* 添加水平线效果 */
+}
+
+/* logo */
+.enterprise_logo,
+.enterprise_name,
+nav {
+    float: left;
+    /* 左浮动布局：让这三个元素在同一行从左向右排列 */
+}
+
+/* 企业名称 */
+.enterprise_name {
+    font-size: 26px;
+    padding: 10px 0 0 10px;
+}
+
+.enterprise_name em {
+    color: red;
+}
+
+/* 导航菜单 */
+nav {
+    float: right;
+    /* 只改这一行：左浮动改为右浮动 */
+    margin-top: 20px;
+    padding-left: 100px;
+}
+
+nav a {
+    padding-left: 40px;
+    /* 左内边距：创建导航项之间的水平间距 */
+    color: #000000;
+    text-decoration: none;
+}
+
+nav a:hover {
+    cursor: pointer;
+    color: #05a;
+}
+
+.clear {
+    clear: both;
+    /* 清除浮动：防止后续元素受到上面浮动布局的影响 */
+}
+
+/* 用户注册标题 */
+.register-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    color: #e53935;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.jumbo_photo>img {
+    /* 图片宽度充满容器 */
+    width: 100%;
+    height: 200px;
+}
+
+/* 表单字段集样式 - 包含标题边框的表单区域 */
+.form-fieldset {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+/* 表单区域标题样式 - 装饰在边框上的标题 */
+.section-legend {
+    color: #888888;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 10px;
+    margin-left: 10px;
+}
+
+
+/* 表单项组 - 每个表单项的容器 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* 表单项标签样式 - 左侧标签 */
+.form-group label {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* 必填输入框样式 - 给必填项添加红色边框 */
+.form-group input:required {
+    border: 1px solid #ff4d4f;
+}
+
+/* 当有输入内容时取消标红 */
+.form-group input:required:valid {
+    border: 1px solid #ccc;
+}
+
+/* 表单控件样式 - 输入框等表单元素 */
+.form-control {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* 头像上传区域样式 - 点击上传的矩形区域 */
+.avatar-upload {
+    border: 1px dashed #ccc;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+}
+
+.avatar-upload::before {
+    content: "＋";
+    /* 水平居中：控制行内内容在块级元素内的水平对齐 */
+    text-align: center;
+    /* 关键：将伪元素设为块级，独占一行，并使 text-align 生效 */
+    display: block;
+    font-size: 50px;
+    color: #ccc;
+    /* 使用 margin 控制加号和文字之间的垂直间距 */
+    margin-bottom: 4px;
+}
+
+.avatar-upload span {
+    /* 将span设为块级元素，独占一行 */
+    display: block;
+    /* 水平居中：控制span内文本的对齐 */
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 鼠标悬停头像的点击上传时改变边框颜色 */
+.avatar-upload:hover {
+    border-color: #666;
+    cursor: pointer;
+    /* 鼠标悬停时显示手型指针 */
+}
+
+/* 性别单选按钮样式 */
+.gender-radio {
+    margin-right: 5px;
+}
+
+/* 产品选项容器样式 */
+.product-option {
+    display: inline-block;
+    /* 行内块显示，使选项水平排列 */
+    margin-right: 30px;
+    /* 右侧间距，分隔各个产品选项 */
+}
+
+/* 产品图片样式 */
+.product-image {
+    display: block;
+    /* 块级显示，独占一行 */
+    margin-top: 8px;
+    width: 150px;
+    /* 固定宽度 */
+    height: 120px;
+    /* 固定高度 */
+    border: 1px solid #ddd;
+    /* 浅灰色边框 */
+}
+
+/* 按钮组容器样式 */
+.btn-group {
+    width: 100%;
+    /* 宽度充满父容器 */
+    display: flex;
+    /* 弹性布局，便于按钮排列 */
+    justify-content: center;
+    /* 子元素水平居中 */
+    padding: 0;
+    /* 内边距清零 */
+    margin: 0;
+    /* 外边距清零 */
+}
+
+/* 公共按钮基础样式 */
+.btn {
+    color: white;
+    /* 文字颜色 */
+    width: 200px;
+    /* 固定按钮宽度 */
+    padding: 10px 0;
+    /* 上下内边距10px，左右为0 */
+    margin: 0 20px;
+    /* 左右外边距10px，创建按钮间距 */
+    border: none;
+    /* 无边框 */
+    border-radius: 4px;
+    /* 圆角边框 */
+    font-size: 16px;
+    /* 字体大小 */
+    cursor: pointer;
+    /* 鼠标悬停时显示手型指针 */
+}
+
+/* 页脚模块 */
+footer {
+    margin-top: 20px;
+    background-color: black;
+}
+
+.copyright {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 10px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}

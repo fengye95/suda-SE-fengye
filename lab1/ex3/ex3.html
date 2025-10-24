@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>视频播放页面</title>
+    <link rel="stylesheet" href="ex3.css">
+</head>
+
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="header-left">
+            <button class="icon-btn" id="backBtn">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+            <div class="logo">视频平台</div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn" id="searchBtn">
+                <i class="fa fa-search"></i>
+            </button>
+            <button class="icon-btn" id="userBtn">
+                <i class="fa fa-user-circle"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 视频播放区域 -->
+    <div class="video-container">
+        <video id="videoPlayer" class="video-player" poster="https://picsum.photos/800/1420">
+            <source src="#" type="video/mp4">
+            您的浏览器不支持视频播放
+        </video>
+
+        <!-- 视频播放控制层 -->
+        <div id="videoControls" class="video-controls">
+            <!-- 顶部控制 -->
+            <div class="controls-top">
+                <span class="time-display" id="currentTime">00:00</span>
+                <div class="controls-right">
+                    <button class="icon-btn" id="settingsBtn">
+                        <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="icon-btn" id="fullscreenBtn">
+                        <i class="fa fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 进度条 -->
+            <div class="progress-container" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- 底部控制 -->
+            <div class="controls-bottom">
+                <button id="playPauseBtn" class="icon-btn large">
+                    <i class="fa fa-play"></i>
+                </button>
+
+                <div class="controls-center">
+                    <button class="icon-btn" id="volumeBtn">
+                        <i class="fa fa-volume-up"></i>
+                    </button>
+                    <button class="icon-btn" id="prevBtn">
+                        <i class="fa fa-step-backward"></i>
+                    </button>
+                    <button class="icon-btn" id="nextBtn">
+                        <i class="fa fa-step-forward"></i>
+                    </button>
+                </div>
+
+                <span class="time-display" id="duration">00:00</span>
+            </div>
+        </div>
+
+        <!-- 中央大播放按钮 -->
+        <button id="bigPlayBtn" class="big-play-btn">
+            <i class="fa fa-play"></i>
+        </button>
+    </div>
+
+    <!-- 视频信息区域 -->
+    <section class="video-info">
+        <h1 class="video-title">这是一个精彩的视频标题，展示了视频的主要内容和亮点</h1>
+
+        <div class="video-meta">
+            <div class="video-stats">
+                <span>123.4万 次观看</span>
+                <span class="separator">·</span>
+                <span>2023-06-15</span>
+            </div>
+            <div class="video-actions">
+                <button class="action-btn">
+                    <i class="fa fa-share-alt"></i>
+                    <span>分享</span>
+                </button>
+                <button class="action-btn">
+                    <i class="fa fa-star-o"></i>
+                    <span>收藏</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 作者信息 -->
+        <div class="author-info">
+            <div class="author-details">
+                <img src="https://picsum.photos/100/100?random=1" alt="作者头像" class="author-avatar">
+                <div class="author-text">
+                    <div class="author-name">视频创作者</div>
+                    <div class="author-fans">12.5万 粉丝</div>
+                </div>
+            </div>
+            <button class="follow-btn">关注</button>
+        </div>
+    </section>
+
+    <section class="episodes-section">
+        <div class="section-header">
+            <h2 class="section-title">选集</h2>
+            <span class="view-all" id="toggleEpisodes">查看全部</span>
+        </div>
+
+        <div class="episodes-grid" id="episodesGrid">
+            <button class="episode-btn active">1. 视频简介</button>
+            <button class="episode-btn">2. 主要内容</button>
+            <button class="episode-btn">3. 深入讲解</button>
+            <button class="episode-btn">4. 案例分析</button>
+            <button class="episode-btn">5. 总结回顾</button>
+            <button class="episode-btn">6. 扩展内容</button>
+            <!-- 更多剧集 -->
+            <button class="episode-btn">7. 进阶技巧</button>
+            <button class="episode-btn">8. 实战演练</button>
+            <button class="episode-btn">9. 常见问题</button>
+            <button class="episode-btn">10. 资源下载</button>
+            <button class="episode-btn">11. 课后练习</button>
+            <button class="episode-btn">12. 拓展阅读</button>
+        </div>
+    </section>
+
+    <!-- 评论区域 -->
+    <section class="comments-section">
+        <div class="section-header">
+            <h2 class="section-title">评论 (128)</h2>
+            <span class="sort-option">最新</span>
+        </div>
+
+        <!-- 评论输入框 -->
+        <div class="comment-input-container">
+            <img src="https://picsum.photos/100/100?random=2" alt="用户头像" class="user-avatar">
+            <div class="comment-input-wrapper">
+                <input type="text" placeholder="写下你的评论..." class="comment-input">
+                <button class="send-btn">发送</button>
+            </div>
+        </div>
+
+        <!-- 评论列表 -->
+        <div class="comments-list">
+            <!-- 评论项组件化 -->
+            <div class="comment-item">
+                <img src="https://picsum.photos/100/100?random=3" alt="用户头像" class="user-avatar">
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-author">用户A</span>
+                        <span class="comment-time">2天前</span>
+                    </div>
+                    <p class="comment-text">这个视频内容非常棒，学到了很多知识，感谢UP主的分享！</p>
+                    <div class="comment-actions">
+                        <button class="comment-action-btn">
+                            <i class="fa fa-thumbs-o-up"></i> 24
+                        </button>
+                        <button class="comment-action-btn">回复</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多评论项... -->
+        </div>
+
+        <!-- 加载更多评论 -->
+        <button class="load-more-btn">加载更多评论</button>
+    </section>
+
+    <!-- 相关推荐 -->
+    <section class="recommendations-section">
+        <h2 class="section-title">相关推荐</h2>
+
+        <div class="recommendations-list">
+            <!-- 推荐视频项组件化 -->
+            <div class="recommendation-item">
+                <div class="video-thumbnail">
+                    <img src="https://picsum.photos/300/200?random=10" alt="推荐视频">
+                    <span class="video-duration">05:32</span>
+                </div>
+                <div class="video-info-small">
+                    <h3 class="video-title-small">这是一个相关的推荐视频，内容非常精彩</h3>
+                    <p class="video-creator">视频创作者</p>
+                    <p class="video-views">8.2万 次观看</p>
+                </div>
+            </div>
+
+            <!-- 更多推荐项... -->
+        </div>
+    </section>
+
+    <!-- 底部播放控制栏 -->
+    <footer class="bottom-player">
+        <div class="player-info">
+            <img src="https://picsum.photos/100/100?random=20" alt="视频缩略图" class="thumbnail-small">
+            <div class="player-text">
+                <h4 class="player-title">这是一个精彩的视频标题</h4>
+                <p class="player-creator">视频创作者</p>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <button id="smallPlayPauseBtn" class="icon-btn primary">
+                <i class="fa fa-play"></i>
+            </button>
+            <button class="icon-btn" id="smallNextBtn">
+                <i class="fa fa-step-forward"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script src="ex3.js"></script>
+</body>
+
+</html>

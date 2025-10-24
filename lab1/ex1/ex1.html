@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>布局示例</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: black;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        /* 标题样式 */
+        .title-box {
+            color: black;
+            border: 1px solid black;
+            /*上下10px， 左右0px*/
+            padding: 10px 0;
+            font-size: 20px;
+            height: 70px;
+            /* 将当前盒子变成Flex容器 */
+            display: flex;
+            /* 水平居中（Flex 主轴对齐） */
+            justify-content: center;
+            /* 垂直居中（Flex 交叉轴对齐） */
+            align-items: center;
+            margin: 0;
+        }
+
+        /* container内的第一个.title-box特殊样式 */
+        .container .title-box:first-child {
+            color: white;
+            background-color: red;
+        }
+
+        /* 三列布局容器：Flex布局，固定高度，边框包裹 */
+        .three-column {
+            /* 将当前盒子变成Flex容器 */
+            display: flex;
+            height: 260px;
+        }
+
+        /* 左侧列：固定宽度，图片居中展示 */
+        .three-column .left {
+            width: 200px;
+
+            display: flex;
+            /* 内容水平居中 */
+            justify-content: center;
+            /* 项目垂直居中 */
+            align-items: center;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        /* 左侧图片：限制最大尺寸，避免溢出容器 */
+        .three-column .left img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* 中间列：自适应宽度，垂直排列信息项 */
+        .three-column .middle {
+            width: 300px;
+
+            /* 防止文本换行 */
+            white-space: nowrap;
+
+            /* 自身变为Flex容器，用于排列其直接子元素 */
+            display: flex;
+
+            /* 子元素沿垂直方向排列，否则默认是row */
+            flex-direction: column;
+        }
+
+        /* 中间列的信息项：平均分配高度，内部文字垂直居中 */
+        .three-column .middle .info-item {
+            /* 核心：在flex父容器中，每个设置flex属性的项按各自比例分配剩余空间 */
+            /* 这里的比重是1 */
+            flex: 1;
+
+
+            /* 变为Flex容器，用于排列其直接子元素 */
+            display: flex;
+            /* 垂直居中（Flex 交叉轴对齐） */
+            align-items: center;
+
+            padding: 0 10px;
+            border: 1px solid black;
+        }
+
+        /* 右侧列：固定宽度，展示简介文本 */
+        .three-column .right {
+            /* 作为Flex项目：占据父容器的剩余空间 */
+            /* 因为.three-column中就.right设置了flex，相当于独享剩余空间*/
+            flex: 1;
+            padding: 10px;
+
+            /* 自身变为Flex容器，用于排列其直接子元素 */
+            display: flex;
+            /* 垂直居中（Flex 交叉轴对齐） */
+            align-items: center;
+            border: 1px solid black;
+        }
+
+        /* 双列布局 */
+        .two-column-box {
+            display: flex;
+        }
+
+        /* 时间列 */
+        .two-column-box .time-box {
+            width: 200px;
+            flex-shrink: 0;
+            /* 防止项目缩小 */
+            border: 1px solid black;
+            padding: 30px 10px;
+
+            display: flex;
+            justify-content: right;
+            text-align: right;
+            /* 设置文本右对齐 */
+            font-weight: bold;
+            /* 文本加粗 */
+        }
+
+        /* 内容列 */
+        .two-column-box .content-box {
+            flex: 1;
+            /* align-items: center; */
+            border: 1px solid black;
+            padding: 30px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 双列布局（左侧+中间+右侧，中间不换行且足够宽） -->
+        <h2 class="title-box"> 个人简介<em>Person Details</em> </h2>
+        <div class="three-column">
+            <div class="left">
+                <img src="个人照片.jpg" alt="个人照片">
+            </div>
+            <div class="middle">
+                <div class="info-item"><strong>姓名：</strong> 张三 </div>
+                <div class="info-item"><strong>英文名：</strong> lisa </div>
+                <div class="info-item"><strong>民族：</strong> 汉族</div>
+                <div class="info-item"><strong>出生日期：</strong> 2002-08-15</div>
+                <div class="info-item"><strong>手机：</strong> 123123123123</div>
+                <div class="info-item"><strong>邮箱：</strong> anything@cc.com</div>
+            </div>
+            <div class="right">
+                <p>本人乐观开朗，有较强的学习能力和团队协作能力，具备良好的职业素养。对待工作认真负责，善于沟通，能够快速适应新环境，有丰富的社会实践经验，期待在工作中不断成长，为企业创造价值。</p>
+            </div>
+        </div>
+
+        <!-- 教育经历 -->
+        <h2 class="title-box">教育经历<em>EDUCATION</em></h2>
+        <div class="two-column-box">
+            <div class="time-box">
+                <p>2006.09-2010.06<br><br>南京大学<br><br>硕士</p>
+            </div>
+            <div class="content-box">
+                <p><strong>商务英语</strong></p>
+                <p>在校期间主修了，国际贸易实务、英语听力、英语语音、英语语法、商务英语写作、综合英语、商务礼仪、经济应概论、商务基础、应用文写作，并以优异的成绩毕业。</p>
+            </div>
+        </div>
+        <div class="two-column-box">
+            <div class="time-box">
+                <p>2006.09-2010.06<br><br>南京大学<br><br>硕士</p>
+            </div>
+            <div class="content-box">
+                <p><strong>商务英语</strong></p>
+                <p>在校期间主修了，国际贸易实务、英语听力、英语语音、英语语法、商务英语写作、综合英语、商务礼仪、经济应概论、商务基础、应用文写作，并以优异的成绩毕业。</p>
+            </div>
+        </div>
+
+        <!-- 工作经历 -->
+        <h2 class="title-box">工作经历<em>WORK EXPERIENCE</em></h2>
+        <div class="two-column-box">
+            <div class="time-box">
+                <p>2011.08-至今<br><br>广东启德教育集团上海公司</p>
+            </div>
+            <div class="content-box">
+                <p><strong>英语翻译</strong></p>
+                <p>按点和类做留学工作经验，熟知留学的每个澳节流程，有丰富的美国留学申请和文书写作经验， 1.根据学生的素材进行文书创作，包含个人陈述，简历，推荐有， 商科申请着由我学校的Essay写作，曾写过Case
+                    Western ReserveUniversity， University of Arizona等商科Essay，并帮学生取得了这些学校的admit； 2. 细小表的的完成学生的各种学校的申请工作，
+                    包括递交申请， 打使学材料， 各种材料的成绩单认证， 各校的申请流程国外学校的申请和着出学校的回复， 由于我认真细致的工作态度，
+                    分到我手上的学校我和学生12年学生全部拿到了学校的录取offer，无一被拒； 3.专业的指导学生签证， 目前有过10多个学生的签证全部通过，无一被拒， 还成功的帮助一个被Pennsylvania
+                    State University拒录的学生成功的拿到了美国的一所社区大学的录取offer；</p>
+            </div>
+        </div>
+        <div class="two-column-box">
+            <div class="time-box">
+                <p>2011.08-至今<br><br>广东启德教育集团上海公司</p>
+            </div>
+            <div class="content-box">
+                <p><strong>英语翻译</strong></p>
+                <p>按点和类做留学工作经验，熟知留学的每个澳节流程，有丰富的美国留学申请和文书写作经验， 1.根据学生的素材进行文书创作，包含个人陈述，简历，推荐有， 商科申请着由我学校的Essay写作，曾写过Case
+                    Western ReserveUniversity， University of Arizona等商科Essay，并帮学生取得了这些学校的admit； 2. 细小表的的完成学生的各种学校的申请工作，
+                    包括递交申请， 打使学材料， 各种材料的成绩单认证， 各校的申请流程国外学校的申请和着出学校的回复， 由于我认真细致的工作态度，
+                    分到我手上的学校我和学生12年学生全部拿到了学校的录取offer，无一被拒； 3.专业的指导学生签证， 目前有过10多个学生的签证全部通过，无一被拒， 还成功的帮助一个被Pennsylvania
+                    State University拒录的学生成功的拿到了美国的一所社区大学的录取offer；</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
