@@ -109,7 +109,7 @@ PCB* init_ready_queue() {
 
 // FIFO调度
 void FIFO_schedule(PCB **ready_queue_tail) {
-    printf("\n=== 开始短作业优先(SJF)调度 ===\n\n");
+    printf("\n=== 开始先进先出(FIFO)调度 ===\n\n");
 
     int current_time = 0;
     

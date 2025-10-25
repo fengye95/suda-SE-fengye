@@ -19,8 +19,9 @@ int main() {
         exit(1);
     } else {
         // 父进程等待子进程
-        wait(NULL);
-        printf("子进程执行完毕，退出代码()\n");
+        int status;
+        wait(&status);
+        printf("子进程执行完毕，退出代码(%d)\n", status);
     }
 
     return 0;
